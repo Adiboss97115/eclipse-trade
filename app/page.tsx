@@ -2,6 +2,8 @@
 
 import { useEffect, useMemo, useState } from "react";
 import CandlestickChart from "./components/CandlestickChart";
+import Link from "next/link";
+import NavbarAuth from "./components/NavbarAuth";
 
 import {
   Bell,
@@ -255,9 +257,7 @@ const candleData = buildCandlesFromLineData(chartData);
             <button className="hidden rounded-xl border border-white/10 bg-white/5 p-2 transition hover:bg-white/10 md:inline-flex">
               <Bell className="h-5 w-5 text-slate-200" />
             </button>
-            <button className="rounded-xl bg-violet-600 px-4 py-2 text-sm font-medium transition hover:bg-violet-500">
-              Login
-            </button>
+            <NavbarAuth />
             <button className="rounded-xl border border-white/10 bg-white/5 p-2 transition hover:bg-white/10 md:hidden">
               <Menu className="h-5 w-5" />
             </button>
@@ -270,11 +270,11 @@ const candleData = buildCandlesFromLineData(chartData);
               <div>
                 <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs text-emerald-300">
                   <ArrowUpRight className="h-3.5 w-3.5" />
-                  Marché haussier détecté
+                  Plateforme de trading nouvelle génération
                 </div>
                 <h1 className="text-4xl font-bold leading-tight md:text-6xl">
                   Trade smarter, <br className="hidden md:block" />
-                  not harder
+                  <span className="text-purple-400">with EclipseTrade</span>
                 </h1>
                 <p className="mt-4 max-w-2xl text-base text-slate-300 md:text-lg">
                   Une interface de trading moderne, intuitive et immersive pour
@@ -299,12 +299,18 @@ const candleData = buildCandlesFromLineData(chartData);
               <button className="rounded-2xl bg-violet-600 px-5 py-4 text-sm font-semibold transition hover:bg-violet-500">
                 Commencer maintenant
               </button>
-              <button className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm font-semibold transition hover:bg-white/10">
-                Créer un compte
-              </button>
-              <button className="rounded-2xl border border-cyan-400/20 bg-cyan-400/10 px-5 py-4 text-sm font-semibold text-cyan-200 transition hover:bg-cyan-400/20">
-                Mode démo gratuit
-              </button>
+             <Link
+                href="/auth"
+               className="rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-sm font-semibold transition hover:bg-white/10"
+            >
+               Créer un compte
+            </Link>
+              <Link
+               href="/dashboard"
+               className="rounded-xl border border-blue-500/20 bg-blue-500/10 px-6 py-3 text-sm font-medium text-blue-300 transition hover:bg-blue-500/20"
+           >
+           Mode démo gratuit
+          </Link>
             </div>
           </div>
 
