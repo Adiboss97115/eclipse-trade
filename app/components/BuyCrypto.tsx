@@ -27,6 +27,7 @@ export default function BuyCrypto() {
     const {
       data: { user },
     } = await supabase.auth.getUser();
+    
     console.log("USER ID:", user?.id);
 
     if (!user) {
